@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Reference Guide – Learn Every Common HTML Tag Live</title>
+    <meta name="description" content="A single-page, live HTML reference. See common HTML tags, forms, media, semantic elements and attributes rendered with examples.">
+    <meta property="og:title" content="HTML Reference Guide – Learn HTML Live">
+    <meta property="og:description" content="See every common HTML tag in action on one page. Free and beginner friendly.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="https://www.w3.org/favicon.ico">
+
+    <!-- CSS lives inside <style> to keep this a "Pure HTML" demonstration -->
+    <style>
+        body { font-family: system-ui, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f9; }
+        header { background: #2c3e50; color: white; padding: 2rem; text-align: center; }
+        nav { background: #34495e; padding: 0.5rem; text-align: center; position: sticky; top: 0; z-index: 100; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1rem; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 0.25rem 0.5rem; }
+        nav a:hover { text-decoration: underline; }
+        main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+        section { background: white; margin-bottom: 2rem; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); scroll-margin-top: 4rem; }
+        h1, h2, h3 { border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+        pre { background: #272822; color: #f8f8f2; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+        code { font-family: monospace; background: #eee; padding: 0.2rem 0.4rem; border-radius: 3px; }
+        .tag-info { font-size: 0.8rem; color: #7f8c8d; font-style: italic; display: block; margin-bottom: 0.5rem; }
+        footer { background: #2c3e50; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        summary { cursor: pointer; font-weight: bold; }
+        label { cursor: pointer; }
+
+        /* Code Inspector */
+        .insp-hover { outline: 2px dashed #e74c3c !important; outline-offset: 2px; }
+        footer { padding-bottom: 9rem; }
+        #inspector { position: fixed; left: 12px; bottom: 12px; z-index: 900; width: min(94vw, 520px); background: #272822; color: #f8f8f2; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.4); font-size: 0.85rem; }
+        #insp-head { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 0.75rem; background: #34495e; border-radius: 8px 8px 0 0; }
+        #inspector.pinned #insp-head { background: #c0392b; }
+        #inspector.off #insp-head { border-radius: 8px; }
+        #inspector button { font-size: 0.75rem; padding: 0.25rem 0.6rem; border: 0; border-radius: 4px; cursor: pointer; }
+        #insp-code { margin: 0; border-radius: 0 0 8px 8px; max-height: 30vh; overflow: auto; white-space: pre-wrap; word-break: break-word; font-family: monospace; padding: 0.75rem; }
+        #inspector.off #insp-code, #inspector.off #insp-copy { display: none; }
+    </style>
+</head>
+
+<!-- The "Body" contains everything visible to the user -->
+
+<body>
+
+    <!-- Semantic Header -->
+    <header>
+        <h1>HTML Reference Guide</h1>
+        <p>A single-page, live reference of the most important HTML tags.</p>
+        <p>💡 <strong>Hover over (or tap) any example</strong> to see the exact HTML code behind it. Click to pin it.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#structure">Structure</a>
+        <a href="#text">Text</a>
+        <a href="#lists">Lists</a>
+        <a href="#media">Media</a>
+        <a href="#forms">Forms</a>
+        <a href="#links">Links &amp; Tables</a>
+        <a href="#more">More Elements</a>
+        <a href="#advanced">Advanced</a>
+        <a href="#meta">Head &amp; Meta</a>
+        <a href="#rare">Rare</a>
+        <a href="#templates">Templates</a>
+        <a href="#history">Deprecated</a>
+        <a href="#attributes">Attributes</a>
+    </nav>
+
+    <main>
+
+        <!-- 1. Structure -->
+        <section id="structure">
+            <h2>1. Document Structure &amp; Semantics</h2>
+            <span class="tag-info">&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;</span>
+
+            <p>Semantic tags help Search Engines (SEO) and Screen Readers understand your content.</p>
+
+            <article>
+                <h3>An Article</h3>
+                <p>This is an <code>&lt;article&gt;</code>, used for standalone content like blog posts or news stories.</p>
+            </article>
+
+            <aside style="background: #fff9e6; padding: 1rem; border-left: 4px solid #f1c40f;">
+                <strong>Side Note (Aside):</strong>
+                <p>An <code>&lt;aside&gt;</code> is for content indirectly related to the main topic (like a sidebar or pull-quote).</p>
+            </aside>
+        </section>
+
+        <!-- 2. Text -->
+        <section id="text">
+            <h2>2. Text &amp; Content Tags</h2>
+            <span class="tag-info">&lt;h1-h6&gt;, &lt;p&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;mark&gt;, &lt;ins&gt;, &lt;del&gt;, &lt;blockquote&gt;, &lt;pre&gt;</span>
+
+            <p>This is a standard paragraph <code>&lt;p&gt;</code>.</p>
+
+            <p>You can make text <strong>Strong (Bold)</strong> or <em>Emphasized (Italic)</em>. You can also
+                <mark>Highlight</mark> words, <ins>Underline additions</ins>, or <del>strike through deletions</del>.</p>
+
+            <blockquote>
+                "This is a blockquote. Use it for citations or famous messages."
+                <cite>— HTML Spec</cite>
+            </blockquote>
+
+            <p>Horizontal rules help separate sections:</p>
+            <hr>
+
+            <h3>Code &amp; Pre-formatted Text</h3>
+            <p>To show code, use <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code>:</p>
+            <pre>
+&lt;div&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- 3. Lists -->
+        <section id="lists">
+            <h2>3. Lists</h2>
+            <span class="tag-info">&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</span>
+
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <div>
+                    <h4>Unordered (ul)</h4>
+                    <ul>
+                        <li>Apples</li>
+                        <li>Bananas</li>
+                        <li>Cherries</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ordered (ol)</h4>
+                    <ol>
+                        <li>First step</li>
+                        <li>Second step</li>
+                        <li>Final step</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h4>Description List (dl)</h4>
+            <dl>
+                <dt>Coffee</dt>
+                <dd>Black hot drink</dd>
+                <dt>Milk</dt>
+                <dd>White cold drink</dd>
+            </dl>
+        </section>
+
+        <!-- 4. Media -->
+        <section id="media">
+            <h2>4. Images &amp; Multimedia</h2>
+            <span class="tag-info">&lt;figure&gt;, &lt;figcaption&gt;, &lt;img&gt;, &lt;video&gt;, &lt;audio&gt;</span>
+
+            <figure>
+                <img src="https://picsum.photos/seed/html/400/250" alt="Random placeholder landscape" loading="lazy"
+                    style="width: 100%; border-radius: 4px;">
+                <figcaption>A <code>&lt;figure&gt;</code> with a <code>&lt;figcaption&gt;</code> describes the image.</figcaption>
+            </figure>
+
+            <h4>Native Video &amp; Audio</h4>
+            <div style="background: #eee; padding: 1rem; border-radius: 4px; text-align: center;">
+                <p>(Videos and Audio require source files, but the tags look like this:)</p>
+                <code>&lt;video controls&gt; &lt;source src="..."&gt; &lt;/video&gt;</code><br><br>
+                <code>&lt;audio controls&gt; &lt;source src="..."&gt; &lt;/audio&gt;</code>
+            </div>
+        </section>
+
+        <!-- 5. Forms -->
+        <section id="forms">
+            <h2>5. Forms &amp; User Input</h2>
+            <span class="tag-info">&lt;form&gt;, &lt;fieldset&gt;, &lt;legend&gt;, &lt;input&gt;, &lt;label&gt;, &lt;select&gt;, &lt;textarea&gt;, &lt;button&gt;</span>
+
+            <form action="#" method="get" onsubmit="event.preventDefault(); alert('Form Submitting...');">
+                <fieldset style="border: 1px solid #ccc; padding: 1rem; border-radius: 4px;">
+                    <legend>User Feedback Form</legend>
+
+                    <p>
+                        <label for="username">Name:</label><br>
+                        <input type="text" id="username" name="name" placeholder="Enter name">
+                    </p>
+
+                    <p>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </p>
+
+                    <p>
+                        <label for="fav_color">Favorite Color:</label><br>
+                        <input type="color" id="fav_color" name="color">
+                    </p>
+
+                    <p>
+                        What do you learn?<br>
+                        <input type="checkbox" id="html" name="skill" value="HTML"> <label for="html">HTML</label><br>
+                        <input type="checkbox" id="css" name="skill" value="CSS"> <label for="css">CSS</label>
+                    </p>
+
+                    <p>
+                        Experience Level:<br>
+                        <input type="radio" id="beg" name="lvl" value="Beginner"> <label for="beg">Beginner</label><br>
+                        <input type="radio" id="adv" name="lvl" value="Advanced"> <label for="adv">Advanced</label>
+                    </p>
+
+                    <p>
+                        <label for="topic">Topic:</label><br>
+                        <select id="topic" name="topic">
+                            <optgroup label="Basics">
+                                <option value="tags">Tags</option>
+                                <option value="attribs">Attributes</option>
+                            </optgroup>
+                            <optgroup label="Advanced">
+                                <option value="forms">Forms</option>
+                            </optgroup>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="message">Message:</label><br>
+                        <textarea id="message" name="message" rows="4" style="width: 100%"></textarea>
+                    </p>
+
+                    <button type="submit">Submit Form</button>
+                    <button type="reset" style="background:#ddd; border:1px solid #ccc;">Clear</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- 6. Links & Tables -->
+        <section id="links">
+            <h2>6. Links &amp; Tables</h2>
+            <span class="tag-info">&lt;a&gt;, &lt;table&gt;, &lt;caption&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</span>
+
+            <p>The most important tag: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs Link</a> (External)</p>
+
+            <table>
+                <caption>Common tags by category</caption>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Tag</th>
+                        <th>Example Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Structure</td>
+                        <td>div</td>
+                        <td>Generic container</td>
+                    </tr>
+                    <tr>
+                        <td>Text</td>
+                        <td>span</td>
+                        <td>Inline style hooks</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">2 tags shown (tfoot = table footer)</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- 7. More Elements -->
+        <section id="more">
+            <h2>7. More Useful Elements</h2>
+            <span class="tag-info">&lt;details&gt;, &lt;summary&gt;, &lt;progress&gt;, &lt;meter&gt;, &lt;abbr&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;small&gt;, &lt;b&gt;, &lt;i&gt;, &lt;br&gt;, &lt;wbr&gt;, &lt;picture&gt;</span>
+
+            <h4>Accordion with zero JavaScript</h4>
+            <details>
+                <summary>Click to expand (details + summary)</summary>
+                <p>This hidden content is revealed natively by the browser.</p>
+            </details>
+
+            <h4>Progress &amp; Meter</h4>
+            <p>
+                <label for="prog">Progress:</label> <progress id="prog" value="60" max="100">60%</progress><br>
+                <label for="met">Disk usage:</label> <meter id="met" min="0" max="100" low="40" high="80" optimum="20" value="65">65%</meter>
+            </p>
+
+            <h4>Inline Text Helpers</h4>
+            <p>
+                <abbr title="HyperText Markup Language">HTML</abbr> (hover me) ·
+                H<sub>2</sub>O (subscript) · E = mc<sup>2</sup> (superscript) ·
+                <small>small print</small> · <b>bold, no extra meaning</b> · <i>italic, no extra meaning</i><br>
+                Line break with <code>&lt;br&gt;</code>:<br>
+                Line one<br>Line two<br>
+                Word break hint: super<wbr>cali<wbr>fragilistic
+            </p>
+
+            <h4>Responsive Image (picture)</h4>
+            <picture>
+                <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/wide/600/200">
+                <img src="https://picsum.photos/seed/narrow/300/200" alt="Image that changes with screen width" loading="lazy" style="max-width: 100%;">
+            </picture>
+
+            <h4>More Input Types</h4>
+            <p>
+                <label>Date: <input type="date"></label><br>
+                <label>Number: <input type="number" min="0" max="10" value="5"></label><br>
+                <label>Range: <input type="range" min="0" max="100"></label><br>
+                <label>Password: <input type="password" placeholder="secret"></label><br>
+                <label>Phone: <input type="tel" placeholder="+880 ..."></label><br>
+                <label>URL: <input type="url" placeholder="https://"></label><br>
+                <label>Search: <input type="search" placeholder="Search..."></label><br>
+                <label>File: <input type="file"></label>
+            </p>
+
+            <h4>Handy Attributes (not global)</h4>
+            <table>
+                <tr><th>Attribute</th><th>Used on</th><th>Purpose</th></tr>
+                <tr><td><code>required</code>, <code>pattern</code>, <code>min</code>, <code>max</code></td><td>input</td><td>Built-in form validation</td></tr>
+                <tr><td><code>loading="lazy"</code></td><td>img, iframe</td><td>Load only when near the viewport</td></tr>
+                <tr><td><code>srcset</code></td><td>img, source</td><td>Offer images for different screens</td></tr>
+                <tr><td><code>download</code></td><td>a</td><td>Download the file instead of opening it</td></tr>
+                <tr><td><code>rel="noopener noreferrer"</code></td><td>a</td><td>Safer links opened in a new tab</td></tr>
+            </table>
+        </section>
+
+        <!-- 8. Advanced -->
+        <section id="advanced">
+            <h2>8. Advanced &amp; Rare Elements</h2>
+            <span class="tag-info">&lt;iframe&gt;, &lt;canvas&gt;, &lt;svg&gt;, &lt;datalist&gt;, &lt;dialog&gt;, &lt;ruby&gt;</span>
+
+            <h4>Embedding External Content</h4>
+            <div style="background:#f9f9f9; padding: 1rem; border: 1px solid #ddd;">
+                <p>An <code>&lt;iframe&gt;</code> embeds another webpage. (Example embedding example.org):</p>
+                <iframe src="https://example.org" title="Embedded Demo" width="100%" height="200" loading="lazy"
+                    style="border: 1px solid #ccc;"></iframe>
+            </div>
+
+            <h4>Graphics &amp; Drawings</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div style="border:1px solid #ddd; padding: 10px;">
+                    <span class="tag-info">&lt;svg&gt; (Vector Graphics)</span>
+                    <svg viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Yellow circle with green border">
+                        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+                    </svg>
+                </div>
+                <div style="border:1px solid #ddd; padding: 10px;">
+                    <span class="tag-info">&lt;canvas&gt; (Pixel Graphics)</span>
+                    <canvas id="myCanvas" width="100" height="100" style="border:1px solid #000; background:#fff;"></canvas>
+                    <script>
+                        var c = document.getElementById("myCanvas");
+                        var ctx = c.getContext("2d");
+                        ctx.fillStyle = "#FF0000";
+                        ctx.fillRect(20, 20, 60, 60);
+                    </script>
+                </div>
+            </div>
+
+            <h4>Interactive &amp; Smart Inputs</h4>
+            <p>
+                <label for="browser">Choose a browser from the list:</label>
+                <input list="browsers" name="browser" id="browser" placeholder="Type for autocomplete...">
+                <datalist id="browsers">
+                    <option value="Edge">
+                    <option value="Firefox">
+                    <option value="Chrome">
+                    <option value="Opera">
+                    <option value="Safari">
+                </datalist>
+                <br><small>The <code>&lt;datalist&gt;</code> provides auto-completion for inputs.</small>
+            </p>
+
+            <h4>International &amp; Specialized Text</h4>
+            <p>Furigana (pronunciation guide) with Ruby: <br>
+                <ruby>
+                    漢 <rt> かん </rt>
+                    字 <rt> じ </rt>
+                </ruby>
+            </p>
+
+            <h4>Global Attributes in Action</h4>
+            <p>The <code>contenteditable="true"</code> attribute makes any element editable by the user!</p>
+            <div contenteditable="true" style="padding: 1rem; border: 2px dashed red; background: #fff;">
+                I am a regular <code>&lt;div&gt;</code> but you can <strong>click me and type</strong> to change my
+                content directly in the browser!
+            </div>
+        </section>
+
+        <!-- 9. Head & Meta -->
+        <section id="meta">
+            <h2>9. The Invisible Work (Head &amp; Meta)</h2>
+            <span class="tag-info">&lt;meta&gt;, &lt;link&gt;, &lt;base&gt;, &lt;noscript&gt;</span>
+            <p>Not everything in HTML is visible. Inside the <code>&lt;head&gt;</code> you have:</p>
+            <ul>
+                <li><code>&lt;meta charset="UTF-8"&gt;</code>: Defines the character encoding.</li>
+                <li><code>&lt;meta name="description" content="..."&gt;</code>: Tells Google what your page is about.</li>
+                <li><code>&lt;meta name="viewport" content="..."&gt;</code>: Ensures the site looks good on mobile.</li>
+                <li><code>&lt;meta property="og:title" content="..."&gt;</code>: Controls how your link looks when shared (Open Graph).</li>
+                <li><code>&lt;link rel="stylesheet" href="..."&gt;</code>: Connects an external CSS file.</li>
+                <li><code>&lt;base href="..."&gt;</code>: Sets the base URL for all relative links.</li>
+                <li><code>&lt;noscript&gt;</code>: Shows a message if the user has disabled JavaScript.</li>
+            </ul>
+            <noscript>
+                <div style="color: red; border: 1px solid red; padding: 10px;">
+                    Warning: JavaScript is disabled. Some interactive parts of this HTML guide may not function.
+                </div>
+            </noscript>
+        </section>
+
+        <!-- 10. Rare -->
+        <section id="rare">
+            <h2>10. The Final Frontier (Rare &amp; Specific)</h2>
+            <span class="tag-info">&lt;address&gt;, &lt;time&gt;, &lt;data&gt;, &lt;kbd&gt;, &lt;samp&gt;, &lt;var&gt;, &lt;dfn&gt;, &lt;q&gt;, &lt;bdo&gt;, &lt;bdi&gt;</span>
+
+            <p>Contact information for the author:</p>
+            <address>Email: <a href="mailto:support@example.com">support@example.com</a><br>Location: The Internet, 404 Road</address>
+
+            <p>Machine-readable data:
+                The concert is at <time datetime="2026-12-25T19:00">7 PM on Christmas</time>.
+                Product ID: <data value="001-HTML">Reference Guide v1</data>.
+            </p>
+
+            <p>Computer Science elements: <br>
+                To save, press <kbd>Ctrl</kbd> + <kbd>S</kbd>.<br>
+                The server returned: <samp>404 Not Found</samp>.<br>
+                Let <var>x</var> represent the number of tags.
+            </p>
+
+            <p>Definitions and Quotes: <br>
+                <dfn>HTML</dfn> is the standard markup language for documents. <br>
+                The speaker said <q>This is an inline quote</q> briefly.
+            </p>
+
+            <p>Bidi (Bidirectional) Overrides: <br>
+                Text backwards: <bdo dir="rtl">This text will go right to left.</bdo> <br>
+                Isolating unknown direction: <bdi>User-Generated-Text-In-Mixed-Languages</bdi>
+            </p>
+        </section>
+
+        <!-- 11. Templates -->
+        <section id="templates">
+            <h2>11. Components &amp; Templates</h2>
+            <span class="tag-info">&lt;template&gt;</span>
+            <p>The <code>&lt;template&gt;</code> tag holds content that is not rendered until JS adds it. Modern frameworks use the same idea of reusable pieces.</p>
+
+            <template id="my-card">
+                <div style="border: 1px solid blue; padding: 10px; margin: 5px;">
+                    <h3>Placeholder Title</h3>
+                    <p>Placeholder content from the template.</p>
+                </div>
+            </template>
+            <div id="target-area">
+                <button onclick="useTemplate()">Click to Render Template Instance</button>
+            </div>
+            <script>
+                function useTemplate() {
+                    const temp = document.getElementById('my-card');
+                    const area = document.getElementById('target-area');
+                    const clone = temp.content.cloneNode(true);
+                    area.appendChild(clone);
+                }
+            </script>
+        </section>
+
+        <!-- 12. Deprecated -->
+        <section id="history" style="background-color: #ffeef0;">
+            <h2 style="color: #b91c1c;">12. The History Museum (Deprecated Tag Warning)</h2>
+            <p><strong>Warning:</strong> These tags are "Obsolete." Browsers still support them, but you should
+                <u>NEVER</u> use them in a real job. They are here so you can recognize them in old code!</p>
+
+            <center>I am centered with the <code>&lt;center&gt;</code> tag. (Use CSS instead!)</center>
+
+            <marquee behavior="scroll" direction="left">I am a moving <code>&lt;marquee&gt;</code>. (Considered annoying and obsolete!)</marquee>
+
+            <p>
+                <font color="blue" size="5">I am styled with the <code>&lt;font&gt;</code> tag. (CSS replaced this in 1996!)</font>
+            </p>
+
+            <p><s>Strike-through via s</s>, <u>Underline via u</u> (Use only for non-link underlines).</p>
+        </section>
+
+        <!-- 13. Global Attributes -->
+        <section id="attributes">
+            <h2>13. Master List of Global Attributes</h2>
+            <p>These attributes can be applied to <strong>ANY</strong> HTML tag:</p>
+            <table style="font-size: 0.85rem;">
+                <tr><th>Attribute</th><th>Purpose</th></tr>
+                <tr><td><code>id</code></td><td>Unique identifier for CSS/JS</td></tr>
+                <tr><td><code>class</code></td><td>Classification for groups of elements</td></tr>
+                <tr><td><code>style</code></td><td>Inline CSS (Last resort)</td></tr>
+                <tr><td><code>title</code></td><td>Tooltip text when hovering</td></tr>
+                <tr><td><code>tabindex</code></td><td>Controls focus order for keyboard users</td></tr>
+                <tr><td><code>draggable="true"</code></td><td>Allows users to drag the element</td></tr>
+                <tr><td><code>spellcheck="true"</code></td><td>Checks spelling in editable areas</td></tr>
+                <tr><td><code>lang="en"</code></td><td>Specifies the language of the element content</td></tr>
+                <tr><td><code>hidden</code></td><td>Hides the element from view</td></tr>
+                <tr><td><code>data-*</code></td><td>Store custom data on any element</td></tr>
+                <tr><td><code>contenteditable</code></td><td>Makes the element editable</td></tr>
+                <tr><td><code>popover</code></td><td>Turns the element into a native popup</td></tr>
+            </table>
+        </section>
+
+    </main>
+
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+        <button onclick="document.getElementById('final-dialog').showModal();" aria-label="Open help dialog"
+            style="padding: 1rem; border-radius: 50%; width: 60px; height: 60px; background: #e74c3c; color: white; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-weight: bold;">?</button>
+    </div>
+
+    <!-- Modals are built with <dialog> -->
+    <dialog id="final-dialog"
+        style="border: none; border-radius: 8px; padding: 2rem; box-shadow: 0 0 50px rgba(0,0,0,0.5);">
+        <h2>Nice work!</h2>
+        <p>You have seen the core of HTML, from the basics to the "ancient" tags of the past.</p>
+        <p>HTML keeps growing. Explore more on MDN Web Docs.</p>
+        <button onclick="this.closest('dialog').close();" style="width: 100%; padding: 10px;">Return to Site</button>
+    </dialog>
+
+    <footer>
+        <p>&copy; 2026 Learning Project Created By EVA. Built with purely HTML foundations.</p>
+        <p><small>Invisible scripts or meta tags are located in the source code's &lt;head&gt; section.</small></p>
+    </footer>
+
+    <!-- Code Inspector: shows the HTML behind whatever you hover or tap -->
+    <div id="inspector" aria-live="polite">
+        <div id="insp-head">
+            <strong id="insp-title">Hover over any example</strong>
+            <span>
+                <button id="insp-copy" type="button">Copy</button>
+                <button id="insp-toggle" type="button">Inspector: ON</button>
+            </span>
+        </div>
+        <pre id="insp-code">Move your mouse (or tap) over any example above to see the HTML that makes it.</pre>
+    </div>
+
+    <script>
+        (function () {
+            var tags = 'h2,h3,h4,p,ul,ol,li,dl,dt,dd,blockquote,pre,hr,article,aside,figure,img,table,caption,tr,th,td,details,summary,progress,meter,abbr,sub,sup,small,b,i,strong,em,mark,ins,del,cite,q,kbd,samp,var,dfn,time,data,address,bdo,bdi,ruby,svg,canvas,iframe,picture,center,marquee,font,s,u,form,fieldset,label,input,select,textarea,button,datalist,a';
+            var SEL = tags.split(',').map(function (t) { return 'main ' + t; }).join(',');
+            var INFO = {
+                h2: 'Heading', h3: 'Sub-heading', h4: 'Small heading', p: 'Paragraph', ul: 'Bullet list', ol: 'Numbered list', li: 'List item',
+                dl: 'Description list', dt: 'Term', dd: 'Description', blockquote: 'Block quotation', pre: 'Pre-formatted text', hr: 'Divider line',
+                article: 'Standalone content', aside: 'Side content', figure: 'Figure with caption', img: 'Image', table: 'Table', caption: 'Table title',
+                tr: 'Table row', th: 'Table header cell', td: 'Table cell', details: 'Expandable section', summary: 'Label for details',
+                progress: 'Progress bar', meter: 'Gauge', abbr: 'Abbreviation', sub: 'Subscript', sup: 'Superscript', small: 'Small print',
+                b: 'Bold (no extra meaning)', i: 'Italic (no extra meaning)', strong: 'Important text', em: 'Emphasized text', mark: 'Highlighted text',
+                ins: 'Inserted text', del: 'Deleted text', cite: 'Citation', q: 'Inline quote', kbd: 'Keyboard input', samp: 'Sample output',
+                'var': 'Variable', dfn: 'Definition term', time: 'Date / time', data: 'Machine-readable value', address: 'Contact info',
+                bdo: 'Override text direction', bdi: 'Isolate text direction', ruby: 'Pronunciation guide', svg: 'Vector graphic',
+                canvas: 'Pixel drawing area', iframe: 'Embedded page', picture: 'Responsive image', center: 'Obsolete: centering',
+                marquee: 'Obsolete: scrolling text', font: 'Obsolete: font styling', s: 'Strikethrough', u: 'Underline', form: 'Form',
+                fieldset: 'Group of form controls', label: 'Label for an input', input: 'Input field', select: 'Dropdown',
+                textarea: 'Multi-line text box', button: 'Button', datalist: 'Autocomplete suggestions', a: 'Link'
+            };
+            var panel = document.getElementById('inspector');
+            var title = document.getElementById('insp-title');
+            var box = document.getElementById('insp-code');
+            var copyBtn = document.getElementById('insp-copy');
+            var toggleBtn = document.getElementById('insp-toggle');
+            var on = true, pinned = false, cur = null, codeText = '';
+
+            function pick(t) {
+                if (!t || !t.closest || t.closest('.tag-info')) return null;
+                return t.closest(SEL);
+            }
+
+            function getCode(el) {
+                var c = el.cloneNode(true);
+                [c].concat([].slice.call(c.querySelectorAll('.insp-hover'))).forEach(function (n) {
+                    n.classList.remove('insp-hover');
+                    if (!n.getAttribute('class')) n.removeAttribute('class');
+                });
+                var lines = c.outerHTML.split('\n'), min = 1e9;
+                lines.slice(1).forEach(function (l) {
+                    if (l.trim()) min = Math.min(min, l.match(/^\s*/)[0].length);
+                });
+                if (min < 1e9) lines = [lines[0]].concat(lines.slice(1).map(function (l) { return l.slice(min); }));
+                var h = lines.filter(function (l) { return l.trim(); }).join('\n');
+                if (h.length > 700) h = h.slice(0, 700) + '\n… (shortened)';
+                return h;
+            }
+
+            function show(el) {
+                if (cur) cur.classList.remove('insp-hover');
+                cur = el;
+                if (!el) return;
+                el.classList.add('insp-hover');
+                var name = el.tagName.toLowerCase();
+                title.textContent = '<' + name + '>  ' + (INFO[name] || '') + (pinned ? '  📌 click again to release' : '');
+                codeText = getCode(el);
+                box.textContent = codeText;
+            }
+
+            document.addEventListener('mouseover', function (e) {
+                if (!on || pinned) return;
+                var el = pick(e.target);
+                if (el && el !== cur) show(el);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!on) return;
+                var el = pick(e.target);
+                if (!el) return;
+                if (e.target.closest('main a')) e.preventDefault(); // keep people on the page while inspecting
+                pinned = !(pinned && el === cur);
+                panel.classList.toggle('pinned', pinned);
+                show(el);
+            });
+
+            toggleBtn.addEventListener('click', function () {
+                on = !on;
+                pinned = false;
+                panel.classList.remove('pinned');
+                panel.classList.toggle('off', !on);
+                toggleBtn.textContent = 'Inspector: ' + (on ? 'ON' : 'OFF');
+                if (!on) { if (cur) cur.classList.remove('insp-hover'); cur = null; title.textContent = 'Code inspector is off'; }
+                else { title.textContent = 'Hover over any example'; }
+            });
+
+            copyBtn.addEventListener('click', function () {
+                if (!codeText) return;
+                var done = function () { copyBtn.textContent = 'Copied!'; setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1200); };
+                try { navigator.clipboard.writeText(codeText).then(done, function () { }); } catch (err) { }
+            });
+        })();
+    </script>
+
+    <!-- Scripts are usually placed at the bottom for performance -->
+    <script>
+        console.log("HTML successfully loaded as a standalone document.");
+    </script>
+</body>
+
+</html>
